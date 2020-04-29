@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'widgets/leopard_image.dart';
+import 'widgets/widgets.dart';
 
 part 'leopard_page.dart';
 part 'vulture_page.dart';
@@ -37,6 +37,7 @@ class _MainPageState extends State<MainPage> {
       child: Scaffold(
           body: Stack(alignment: Alignment.centerLeft, children: <Widget>[
         LeopardImage(),
+        VultureImage(),
         PageView(
             controller: _pageController,
             physics: ClampingScrollPhysics(),
