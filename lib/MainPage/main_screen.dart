@@ -1,3 +1,4 @@
+import 'package:expedition_travel_app/Widgets/app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -35,17 +36,20 @@ class _MainPageState extends State<MainPage> {
     return ChangeNotifierProvider(
       create: (_) => PageOffsetNotifier(_pageController),
       child: Scaffold(
-          body: Stack(alignment: Alignment.centerLeft, children: <Widget>[
-        LeopardImage(),
-        VultureImage(),
-        PageView(
-            controller: _pageController,
-            physics: ClampingScrollPhysics(),
-            children: <Widget>[
-              LeopardPage(),
-              VulturePage(),
-            ]),
-      ])),
+          body: SafeArea(
+        child: Stack(alignment: Alignment.centerLeft, children: <Widget>[
+          PageView(
+              controller: _pageController,
+              physics: ClampingScrollPhysics(),
+              children: <Widget>[
+                LeopardPage(),
+                VulturePage(),
+              ]),
+          MyAppBar(),
+          LeopardImage(),
+          VultureImage(),
+        ]),
+      )),
     );
   }
 }
